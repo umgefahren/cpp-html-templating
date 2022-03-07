@@ -27,4 +27,23 @@ std::string HtmlElement::Render() {
     returnString.append("</" + tagname + ">\n");
 
     return returnString;
+};
+
+std::string HtmlDocument::Render() {
+    std::string returnString;
+
+    returnString.append("<!DOCTYPE html>\n");
+    returnString.append("<html>\n");
+    returnString.append("<head>\n");
+    returnString.append("\t<title>" + title + "</title>\n");
+    returnString.append("</head>\n");
+    returnString.append("<body>\n");
+    
+    unsigned bodyChildsLength = body_childs.size();
+    for (int i = 0; i < bodyChildsLength; i++) {
+        std::shared_ptr<Renderable> renderable = body_childs[i];
+        returnString.append(renderable->Render());
+    }
+    returnString.append("</body>\n");
+    return returnString;
 }
