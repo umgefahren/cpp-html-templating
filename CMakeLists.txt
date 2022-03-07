@@ -27,7 +27,6 @@ add_executable(
 
 target_link_libraries(Main RenderLibrary Elements)
 
-if(FALSE)
 include(FetchContent)
 FetchContent_Declare(
     googletest
@@ -52,4 +51,3 @@ target_link_libraries(
 
 include(GoogleTest)
 gtest_discover_tests(hello_test)
-endif()
